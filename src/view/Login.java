@@ -1,21 +1,15 @@
-
 package view;
 
-import practice.project.SignUp;
-
+import javax.swing.JFrame;
 
 public class Login extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
+    
 
     public Login() {
         initComponents();
     }
-
-
-    @SuppressWarnings("unchecked")
-    
    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -85,9 +79,9 @@ public class Login extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(153, 0, 0));
         jButton2.setText("Sign Up");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -153,23 +147,18 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        new SignUp().setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    SignUp signUpPage = new SignUp();
+        signUpPage.setVisible(true);
+        signUpPage.pack();
+        signUpPage.setLocationRelativeTo(null);
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
  
-    private void jButton2ActionPerformed (java.awt.event.ActionEvent evt) {
-        SignUp SignUpFrame = new SignUp();
-        SignUpFrame.setVisible(true);
-        SignUpFrame.pack();
-        SignUpFrame.setLocationRelativeTo(null);
-        this.dispose();
-   
-    }
-    /**
-     * @param args the command line arguments
-     */
+
+
     public static void main(String args[]) {
-   
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -180,11 +169,10 @@ public class Login extends javax.swing.JFrame {
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

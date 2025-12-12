@@ -1,18 +1,15 @@
-
 package view;
 
 import view.Login;
 import java.awt.event.ActionListener;
 
 public class SignUp extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SignUp.class.getName());
 
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SignUp.class.getName());
 
     public SignUp() {
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -70,6 +67,11 @@ public class SignUp extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(153, 0, 0));
         jButton1.setText("Log In");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Already have an acoount? ");
 
@@ -158,16 +160,19 @@ public class SignUp extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Login loginPage = new Login();
         loginPage.setVisible(true);
         loginPage.pack();
         loginPage.setLocationRelativeTo(null);
-        this.dispose();
-    }
+        this.dispose(); // if you’re in Login frame
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Sign Up button action (placeholder)
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         javax.swing.JOptionPane.showMessageDialog(this, "Sign Up button clicked!");
     }
 
@@ -185,7 +190,6 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 
         java.awt.EventQueue.invokeLater(() -> new SignUp().setVisible(true));
     }
-
     /**
      * @param args the command line arguments
      */
