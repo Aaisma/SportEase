@@ -45,7 +45,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel2.setText("Full Name ");
+        jLabel2.setText("User Name");
         jLabel2.setRequestFocusEnabled(false);
 
         username.setForeground(new java.awt.Color(102, 102, 102));
