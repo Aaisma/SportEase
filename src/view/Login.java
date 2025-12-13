@@ -1,6 +1,13 @@
 package view;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 public class Login extends javax.swing.JFrame {
 
@@ -74,6 +81,11 @@ public class Login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("I don't have an account?");
 
@@ -177,7 +189,62 @@ forgotPage.setLocationRelativeTo(null);
 this.dispose();
   // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
- 
+private boolean checkLogin(String email, String password) {
+    // Database connection settings
+    String url = "jdbc:mysql://localhost:3306/DATABASE userdb";  // your DB name
+    String user = "root";                               // DB username
+    String pass = "Nanu@2062";                                   // DB password
+
+    String sql = "SELECT * FROM users WHERE email=? AND password=?";
+
+    try (Connection con = DriverManager.getConnection(url, user, pass);
+         PreparedStatement pst = con.prepareStatement(sql)) {
+
+        pst.setString(1, email);
+        pst.setString(2, password);
+
+        ResultSet rs = pst.executeQuery();
+
+        // If result exists, login successful
+        return rs.next();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this,
+                "Database Error: " + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+    }
+
+    return false;
+}
+
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       String email = jTextField2.getText();
+    String password = String.valueOf(jPasswordField1.getPassword());
+
+    if (email.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(this,
+                "Please enter email and password",
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+        return;
+    }  
+        if (checkLogin(email, password)) {
+        JOptionPane.showMessageDialog(this,
+                "Login Successful!",
+                "Success",
+                JOptionPane.INFORMATION_MESSAGE); 
+    } else {
+         JOptionPane.showMessageDialog(this,
+                "Invalid Email or Password",
+                "Login Failed",
+                JOptionPane.ERROR_MESSAGE);
+        }   
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+
 
 
     public static void main(String args[]) {

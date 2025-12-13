@@ -7,8 +7,8 @@ import javax.mail.internet.*;
 public class EmailSender {
 
     public static void sendEmail(String to, String subject, String messageText) {
-        final String fromEmail = "yourgmail@gmail.com"; // Your Gmail
-        final String password = "yourapppassword";      // Gmail App Password
+        final String fromEmail = "calendar3344@gmail.com"; // Your Gmail
+        final String password = "hofpgsdtolipwfqg";      // Gmail App Password
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");

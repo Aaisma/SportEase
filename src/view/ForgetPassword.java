@@ -12,7 +12,7 @@ public class ForgetPassword extends JFrame {
     private JButton btnReset;
 
     // Database credentials
-    private final String DB_URL = "jdbc:mysql://localhost:3306/userdb"; // Make sure 'userdb' exists
+    private final String DB_URL = "jdbc:mysql://localhost:3306/DATABASE userdb"; // Make sure 'userdb' exists
     private final String DB_USER = "root";
     private final String DB_PASS = "Nanu@2062";
 
