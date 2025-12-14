@@ -1,7 +1,6 @@
 
 package view;
 
-
 public class Login extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
@@ -55,20 +54,20 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel2.setText("Email");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(250, 160, 34, 19);
+        jLabel2.setBounds(250, 160, 35, 18);
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel3.setText("Password");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(250, 240, 80, 19);
+        jLabel3.setBounds(250, 240, 63, 18);
 
         jTextField2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(jTextField2);
-        jTextField2.setBounds(250, 180, 344, 30);
+        jTextField2.setBounds(250, 180, 344, 40);
         jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(250, 260, 344, 30);
+        jPasswordField1.setBounds(250, 260, 344, 35);
 
         jLabel9.setText("Welcome back! to SportEase! Log in to book your next venue and stay in action!");
         jLabel9.setPreferredSize(new java.awt.Dimension(17, 17));
