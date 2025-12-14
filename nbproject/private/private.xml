@@ -5,6 +5,10 @@
         <group>
             <file>file:/Users/abhiyansharma/NetBeansProjects/SportEase/src/view/Login.java</file>
             <file>file:/Users/abhiyansharma/NetBeansProjects/SportEase/src/view/SignUp.java</file>
+            <file>file:/Users/abhiyansharma/NetBeansProjects/SportEase/src/view/PracticeProject.java</file>
+            <file>file:/Users/abhiyansharma/NetBeansProjects/SportEase/src/helper/EmailSender.java</file>
+            <file>file:/Users/abhiyansharma/NetBeansProjects/SportEase/src/database/MySqlConnection.java</file>
+            <file>file:/Users/abhiyansharma/NetBeansProjects/SportEase/src/view/ForgetPassword.java</file>
         </group>
     </open-files>
 </project-private>
