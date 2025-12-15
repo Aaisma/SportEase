@@ -1,5 +1,5 @@
 
-package practice.project;
+package view;
 
 import view.SignUp;
 import controller.UserController;

@@ -37,8 +37,8 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Screenshot 2025-12-05 at 12.03.04.png"))); // NOI18N
-        jLabel6.setText("jLabel6");
+        // jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Screenshot 2025-12-05 at 12.03.04.png"))); // NOI18N
+        // jLabel6.setText("jLabel6");
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
