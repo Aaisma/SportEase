@@ -38,7 +38,7 @@ public class NavBar extends JFrame {
 
         // External pages
         btnLogin.addActionListener(e -> new Login().setVisible(true));
-        btnSignup.addActionListener(e -> new Register().setVisible(true));
+        btnSignup.addActionListener(e -> new SignUp().setVisible(true));
     }
 
     /**
@@ -57,7 +57,6 @@ public class NavBar extends JFrame {
         btnLogin = new javax.swing.JButton();
         btnSignup = new javax.swing.JButton();
         contentPanel = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -134,11 +133,7 @@ public class NavBar extends JFrame {
             }
         });
         getContentPane().add(contentPanel);
-        contentPanel.setBounds(0, 0, 1350, 120);
-
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(1230, 40, 75, 23);
+        contentPanel.setBounds(0, 0, 1280, 120);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -214,7 +209,6 @@ public class NavBar extends JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSignup;
     private javax.swing.JLabel contentPanel;
-    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 
     
