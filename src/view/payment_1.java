@@ -9,12 +9,12 @@ package view;
  *
  * @author binesstar
  */
-public class payment extends javax.swing.JFrame {
+public class payment_1 extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(payment.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(payment_1.class.getName());
 
     /** Creates new form payment2 */
-    public payment() {
+    public payment_1() {
         initComponents();
     }
 
@@ -105,7 +105,7 @@ public class payment extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 820, 100);
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(80, 20, 10, 10);
+        jPanel3.setBounds(80, 20, 100, 100);
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
         jPanel6.setLayout(null);
@@ -120,7 +120,7 @@ public class payment extends javax.swing.JFrame {
         jPanel7.setBounds(140, 20, 410, 270);
 
         getContentPane().add(jPanel6);
-        jPanel6.setBounds(60, 160, 690, 310);
+        jPanel6.setBounds(70, 160, 690, 310);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,7 +147,7 @@ public class payment extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new payment().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new payment_1().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
