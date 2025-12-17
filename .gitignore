@@ -1,13 +1,7 @@
 src/database
 nbproject/private/project.xml
 nbproject/private/build-impl.xml
-<<<<<<< HEAD
-nbproject/build.xml
-=======
-<<<<<<< HEAD
 nbproject/build.xml
 /build/
-=======
-nbproject/build.xml
->>>>>>> 1fa5036a3c8978a34cd769d72940af34057e02e4
->>>>>>> Aaisma
+/dist/
+

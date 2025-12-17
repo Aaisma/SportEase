@@ -1,85 +1,71 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package database;
+package Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.*;
+import java.sql.SQLException;
+import java.sql.Statement;
 
+public class MySqlConnection implements Dbase {
 
-/**
- *
- * @author aaisma
- */
-public class MySqlConnection implements Database{
-
-    /**
-     *
-     * @return
-     */
     @Override
-    public Connection openConnection(){
+    public Connection openConnection() {
         try {
             String username = "root";
-            String password = "Kakrinobimin123~";
-            String database = "Hello";
-            Connection connection;
-            connection = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/" + database, username, password);
-            
-            if (connection ==null){
-                System.out.print("Connection unsuccessful.");
-            }else{
-                System.out.println("Connection successful.");
+            String password = "Nanu@2062";
+            String database = "DATABASE userdb";
+
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/" + database,
+                    username,
+                    password
+            );
+
+            if (connection != null) {
+                System.out.println("Connection successful");
+            } else {
+                System.out.println("Connection unsuccessful");
             }
-            
+
             return connection;
+
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println("DB Error: " + e.getMessage());
             return null;
         }
     }
-    
-     @Override
+
+    @Override
     public void closeConnection(Connection conn) {
-        try{
-            if(conn != null && !conn.isClosed()){
+        try {
+            if (conn != null && !conn.isClosed()) {
                 conn.close();
-                System.out.println("Connection close");
+                System.out.println("Connection closed");
             }
-        }catch(SQLException e){
-            System.out.println(e);
-        }
-    }
-    
-    @Override
-    public ResultSet runQuery(Connection conn, String query){
-        try{
-            Statement stmp = conn.createStatement();
-            ResultSet result = stmp.executeQuery(query);
-            return result;
-            
-        }catch(SQLException e){
-            System.out.print(e);  
-        return null;
-        }
-    }
-    
-    @Override
-    public int executeUpdate(Connection conn, String query){
-        try{
-            Statement stmp = conn.createStatement();
-            int result = stmp.executeUpdate(query);
-            return result;
-        }catch(SQLException e){
-            System.out.println(e);
-        return -1;
+        } catch (SQLException e) {
+            System.out.println("Close Error: " + e.getMessage());
         }
     }
 
+    @Override
+    public ResultSet runQuery(Connection conn, String query) {
+        try {
+            Statement stmt = conn.createStatement();
+            return stmt.executeQuery(query);
+        } catch (SQLException e) {
+            System.out.println("Query Error: " + e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public int executeUpdate(Connection conn, String query) {
+        try {
+            Statement stmt = conn.createStatement();
+            return stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.println("Update Error: " + e.getMessage());
+            return -1;
+        }
+    }
 }
-   
-  
