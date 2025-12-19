@@ -9,12 +9,12 @@ package view;
  *
  * @author binesstar
  */
-public class payment_1 extends javax.swing.JFrame {
+public class payment_2 extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(payment_1.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(payment_2.class.getName());
 
     /** Creates new form payment2 */
-    public payment_1() {
+    public payment_2() {
         initComponents();
     }
 
@@ -37,10 +37,14 @@ public class payment_1 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -102,19 +106,47 @@ public class payment_1 extends javax.swing.JFrame {
         jPanel2.add(jLabel6);
         jLabel6.setBounds(600, 80, 90, 18);
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(0, 0, 100, 100);
+
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 820, 100);
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(80, 20, 100, 100);
+        jPanel3.setBounds(80, 20, 10, 10);
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
         jPanel6.setLayout(null);
 
+        jPanel7.setLayout(null);
+
         jLabel7.setBackground(new java.awt.Color(153, 0, 0));
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel7.setText("BOOKING CONFIRMATION!");
+        jLabel7.setText("PAYMENY SUCCESS!");
         jPanel7.add(jLabel7);
+        jLabel7.setBounds(83, 5, 244, 29);
+
+        jButton1.setBackground(new java.awt.Color(153, 0, 0));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Go To Home");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton1);
+        jButton1.setBounds(110, 180, 190, 30);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Thank you for booking with SportEase.\nGet ready for an amazing game experience.");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel7.add(jScrollPane1);
+        jScrollPane1.setBounds(70, 100, 270, 50);
 
         jPanel6.add(jPanel7);
         jPanel7.setBounds(140, 20, 410, 270);
@@ -124,6 +156,10 @@ public class payment_1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,10 +183,11 @@ public class payment_1 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new payment_1().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new payment_2().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -158,6 +195,7 @@ public class payment_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -165,6 +203,8 @@ public class payment_1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
 }

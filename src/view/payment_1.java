@@ -37,10 +37,18 @@ public class payment_1 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -102,19 +110,74 @@ public class payment_1 extends javax.swing.JFrame {
         jPanel2.add(jLabel6);
         jLabel6.setBounds(600, 80, 90, 18);
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
+        jLabel11.setText("jLabel11");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(0, 0, 100, 100);
+
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 820, 100);
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(80, 20, 100, 100);
+        jPanel3.setBounds(80, 20, 10, 10);
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
         jPanel6.setLayout(null);
 
+        jPanel7.setLayout(null);
+
         jLabel7.setBackground(new java.awt.Color(153, 0, 0));
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel7.setText("BOOKING CONFIRMATION!");
+        jLabel7.setText("ESEWA");
         jPanel7.add(jLabel7);
+        jLabel7.setBounds(163, 5, 84, 29);
+
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 10)); // NOI18N
+        jLabel8.setText("Statements can be used as receipt!");
+        jPanel7.add(jLabel8);
+        jLabel8.setBounds(130, 40, 170, 13);
+
+        jLabel9.setText("USERNAME:");
+        jPanel7.add(jLabel9);
+        jLabel9.setBounds(20, 70, 100, 17);
+
+        jLabel10.setText("PIN :");
+        jPanel7.add(jLabel10);
+        jLabel10.setBounds(20, 140, 28, 17);
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextField1);
+        jTextField1.setBounds(20, 90, 340, 23);
+        jPanel7.add(jTextField2);
+        jTextField2.setBounds(20, 160, 340, 23);
+
+        jButton1.setBackground(new java.awt.Color(153, 0, 0));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Continue");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton1);
+        jButton1.setBounds(30, 230, 130, 24);
+
+        jButton2.setBackground(new java.awt.Color(153, 0, 0));
+        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton2);
+        jButton2.setBounds(250, 230, 130, 24);
 
         jPanel6.add(jPanel7);
         jPanel7.setBounds(140, 20, 410, 270);
@@ -124,6 +187,18 @@ public class payment_1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,13 +226,19 @@ public class payment_1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -165,6 +246,8 @@ public class payment_1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
 }
