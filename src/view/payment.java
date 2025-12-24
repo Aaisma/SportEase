@@ -162,7 +162,7 @@ public class payment extends javax.swing.JFrame {
             }
         });
         jPanel7.add(jButton2);
-        jButton2.setBounds(230, 140, 130, 24);
+        jButton2.setBounds(230, 140, 130, 20);
 
         jPanel6.add(jPanel7);
         jPanel7.setBounds(140, 20, 410, 270);
