@@ -1,45 +1,19 @@
+package view;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-package view;
-import javax.swing.*;
-import java.awt.*;
 
-public class NavBar extends JFrame {
-    private CardLayout cardLayout;
-    /**
-     * Creates new form NavBar
-     */
+public class NavBar extends javax.swing.JFrame {
+   
+
     public NavBar() {
         initComponents();
         
-        cardLayout = new CardLayout();
-        contentPanel.setLayout(cardLayout);
-        
-        //Adding panels
-        contentPanel.add(new Home(), "Home");
-        contentPanel.add(new Discover(), "Discover");
-        contentPanel.add(new AboutUs(), "About Us");
-        contentPanel.add(new Feedback(), "Feedback");
-        
-        // Default page
-        cardLayout.show(contentPanel, "Home");
-        cardLayout.show(contentPanel, "Discover");
-        cardLayout.show(contentPanel, "AboutUs");
-        cardLayout.show(contentPanel, "Feedback");
-
-        // Button actions
-        btnHome.addActionListener(e -> cardLayout.show(contentPanel, "Home"));
-        btnDiscover.addActionListener(e -> cardLayout.show(contentPanel, "Discover"));
-        btnAbout.addActionListener(e -> cardLayout.show(contentPanel, "About Us"));
-        btnFeedback.addActionListener(e -> cardLayout.show(contentPanel, "Feedback"));
-
-        // External pages
-        btnLogin.addActionListener(e -> new Login().setVisible(true));
-        btnSignup.addActionListener(e -> new SignUp().setVisible(true));
     }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,7 +33,6 @@ public class NavBar extends JFrame {
         contentPanel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
 
         btnAbout.setBackground(new java.awt.Color(204, 204, 204));
