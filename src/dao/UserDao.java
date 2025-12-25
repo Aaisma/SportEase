@@ -2,29 +2,112 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package dao;
 
 import database.MySqlConnection;
-import java.sql.Connection;
+import model.userModel;
+import util.PasswordUtils;
 
-public class UserDAO {
-    public static boolean insertUser(String name, String email, String password, String question, String answer) {
-        MySqlConnection db = new MySqlConnection();
-        Connection conn = db.openConnection();
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-        if (conn == null) {
-            return false;
+/**
+ *
+ * @author aaisma
+ */
+public class userDao {
+    MySqlConnection mysql = new MySqlConnection();
+
+    // Register new USER only
+    public void signUp(userModel user) {
+        String sql = "INSERT INTO users(username, email, password, role) VALUES (?, ?, ?, 'USER')";
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement psmt = conn.prepareStatement(sql)) {
+
+            String hashedPassword = PasswordUtils.hashPassword(user.getPassword());
+
+            psmt.setString(1, user.getUsername());
+            psmt.setString(2, user.getEmail());
+            psmt.setString(3, hashedPassword);
+            psmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
 
-        String query = String.format(
-            "INSERT INTO users (full_name, email, password, security_question, answer) VALUES ('%s', '%s', '%s', '%s', '%s')",
-            name, email, password, question, answer
-        );
+    // Check if email already exists
+    public boolean userExists(String email) {
+        String sql = "SELECT * FROM users WHERE email = ?";
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement psmt = conn.prepareStatement(sql)) {
 
-        int result = db.executeUpdate(conn, query);
-        db.closeConnection(conn);
+            psmt.setString(1, email);
+            ResultSet rs = psmt.executeQuery();
+            return rs.next();
 
-        return result > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    // Validate login credentials
+    public boolean validateUser(String username, String password) {
+        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement psmt = conn.prepareStatement(sql)) {
+
+            String hashedPassword = PasswordUtils.hashPassword(password);
+
+            psmt.setString(1, username);
+            psmt.setString(2, hashedPassword);
+            ResultSet rs = psmt.executeQuery();
+            return rs.next();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    // Get role after login
+    public String getUserRole(String username, String password) {
+        String sql = "SELECT role FROM users WHERE username = ? AND password = ?";
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement psmt = conn.prepareStatement(sql)) {
+
+            String hashedPassword = PasswordUtils.hashPassword(password);
+
+            psmt.setString(1, username);
+            psmt.setString(2, hashedPassword);
+            ResultSet rs = psmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("role");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    // Update password securely
+    public void updatePassword(String email, String newPassword) {
+        String sql = "UPDATE users SET password = ? WHERE email = ?";
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement psmt = conn.prepareStatement(sql)) {
+
+            String hashedPassword = PasswordUtils.hashPassword(newPassword);
+
+            psmt.setString(1, hashedPassword);
+            psmt.setString(2, email);
+            psmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(userDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
-
