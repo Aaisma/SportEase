@@ -4,30 +4,57 @@
  */
 package controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import database.DBConnection;
+import javax.swing.JOptionPane;
+import model.Session;
+import dao.userDao;
+import view.*;
 
+/**
+ *
+ * @author aaisma
+ */
 public class LoginController {
+    private final Login view;
 
-    public static String validateUser(String username, String password) {
-        String query = "SELECT role FROM users WHERE username = ? AND password = ?";
+    public LoginController(Login view){
+        this.view = view;
+    }
+    
+    public void handleBack(){
+        view.dispose();
+        new AboutUs().setVisible(true);
+    }
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+    public void handleLogin(String username, String password){
+        userDao dao = new userDao();
 
-            stmt.setString(1, username);
-            stmt.setString(2, password);
+        if (dao.validateUser(username, password)) {
+            String role = dao.getUserRole(username, password);
+            Session.setLoggedIn(true);
 
-            ResultSet rs = stmt.executeQuery();
-            if(rs.next()) {
-                return rs.getString("role");
+            JOptionPane.showMessageDialog(view, "Login successful! Welcome " + role);
+            view.dispose();
+
+            if ("ADMIN".equalsIgnoreCase(role)) {
+                new SportManagement().setVisible(true);
+            } else if ("USER".equalsIgnoreCase(role)) {
+                new UserDashboard().setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Unknown role. Contact support.");
             }
-        }catch(SQLException e) {
-            e.printStackTrace();
+
+        } else {
+            JOptionPane.showMessageDialog(view, "Invalid username or password.");
         }
-        return null;
+    }
+
+    public void goToRegister(){
+        view.dispose();
+        new Register().setVisible(true);
+    }
+
+    public void goToForgotPassword(){
+        view.dispose();
+        new ForgetPassword().setVisible(true);
     }
 }
