@@ -31,6 +31,7 @@ public class SportManagement extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        logout1 = new view.Logout();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -442,6 +443,7 @@ public class SportManagement extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
+    private view.Logout logout1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField nameField;
     private javax.swing.JTextField ratingField;

@@ -15,7 +15,10 @@ public class payment extends javax.swing.JFrame {
 
     /** Creates new form payment2 */
     public payment() {
-        initComponents();
+          initComponents();
+    lblVenue.setText(venue);
+    lblCheckIn.setText(checkIn);
+    lblCheckOut.setText(checkOut);
     }
 
     /** This method is called from within the constructor to
