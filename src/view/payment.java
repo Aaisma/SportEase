@@ -11,9 +11,9 @@ package view;
  */
 public class payment extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(payment.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(payment2.class.getName());
 
-    /** Creates new form payment2 */
+    /** Creates new form payment */
     public payment() {
         initComponents();
     }
@@ -37,15 +37,10 @@ public class payment extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -96,7 +91,7 @@ public class payment extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(153, 0, 0));
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel5.setText("Discover ");
+        jLabel5.setText("Discover");
         jPanel2.add(jLabel5);
         jLabel5.setBounds(470, 80, 70, 18);
 
@@ -107,79 +102,28 @@ public class payment extends javax.swing.JFrame {
         jPanel2.add(jLabel6);
         jLabel6.setBounds(600, 80, 90, 18);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
-        jLabel9.setText("jLabel9");
-        jPanel2.add(jLabel9);
-        jLabel9.setBounds(0, 0, 100, 100);
-
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 820, 100);
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(80, 20, 10, 10);
+        jPanel3.setBounds(80, 20, 100, 100);
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
         jPanel6.setLayout(null);
 
-        jPanel7.setLayout(null);
-
         jLabel7.setBackground(new java.awt.Color(153, 0, 0));
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel7.setText("BOOKING CONFIRMED!");
+        jLabel7.setText("BOOKING CONFIRMATION!");
         jPanel7.add(jLabel7);
-        jLabel7.setBounds(70, 10, 302, 29);
-
-        jLabel8.setBackground(new java.awt.Color(153, 0, 0));
-        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel8.setText("Pay via:");
-        jPanel7.add(jLabel8);
-        jLabel8.setBounds(30, 140, 90, 20);
-
-        jLabel12.setText("Your Booking ID is 0456A.");
-        jPanel7.add(jLabel12);
-        jLabel12.setBounds(110, 50, 160, 17);
-
-        jButton1.setBackground(new java.awt.Color(153, 0, 0));
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cash");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton1);
-        jButton1.setBounds(110, 140, 110, 20);
-
-        jButton2.setBackground(new java.awt.Color(153, 0, 0));
-        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("eSewa/khalti");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton2);
-        jButton2.setBounds(230, 140, 130, 20);
 
         jPanel6.add(jPanel7);
         jPanel7.setBounds(140, 20, 410, 270);
 
         getContentPane().add(jPanel6);
-        jPanel6.setBounds(60, 160, 690, 310);
+        jPanel6.setBounds(70, 160, 690, 310);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,22 +147,17 @@ public class payment extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new payment().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new payment2().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
