@@ -18,7 +18,8 @@ public class payment extends javax.swing.JFrame {
           initComponents();
     lblVenue.setText(venue);
     lblCheckIn.setText(checkIn);
-    lblCheckOut.setText(checkOut);
+  
+    jLabel1.setText(Check-Out Date);
     }
 
     /** This method is called from within the constructor to
