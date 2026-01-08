@@ -43,6 +43,7 @@ public class payment_2 extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
@@ -140,13 +141,14 @@ public class payment_2 extends javax.swing.JFrame {
         jPanel7.add(jButton1);
         jButton1.setBounds(110, 180, 190, 30);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Thank you for booking with SportEase.\nGet ready for an amazing game experience.");
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel7.add(jScrollPane1);
-        jScrollPane1.setBounds(70, 100, 270, 50);
+        jTextField1.setText("Thank you for booking with SportEase. Get ready for an amazing game experience.");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextField1);
+        jTextField1.setBounds(90, 70, 220, 100);
 
         jPanel6.add(jPanel7);
         jPanel7.setBounds(140, 20, 410, 270);
@@ -154,12 +156,24 @@ public class payment_2 extends javax.swing.JFrame {
         getContentPane().add(jPanel6);
         jPanel6.setBounds(70, 160, 690, 310);
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Thank you for booking with SportEase. Get ready for an amazing game experience.");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(170, 450, 234, 91);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,6 +219,7 @@ public class payment_2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
 }
