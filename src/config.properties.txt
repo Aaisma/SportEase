@@ -1,0 +1,2 @@
+STRIPE_SECRET_KEY=sk_test_placeholder_value
+KHALTI_SECRET_KEY=pk_test_placeholder_value
