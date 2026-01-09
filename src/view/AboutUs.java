@@ -36,14 +36,13 @@ public class AboutUs extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        HomeLabel = new javax.swing.JLabel();
         AboutUsLabel = new javax.swing.JLabel();
         DiscoverLabel = new javax.swing.JLabel();
         FeedbackLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        loginButton = new javax.swing.JButton();
         registerButton = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -118,15 +117,6 @@ public class AboutUs extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(110, 0, 1170, 30);
 
-        HomeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homelogo.png"))); // NOI18N
-        HomeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HomeLabelMouseClicked(evt);
-            }
-        });
-        jPanel2.add(HomeLabel);
-        HomeLabel.setBounds(270, 40, 50, 40);
-
         AboutUsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/aboutuslogo.png"))); // NOI18N
         jPanel2.add(AboutUsLabel);
         AboutUsLabel.setBounds(120, 50, 60, 30);
@@ -147,7 +137,7 @@ public class AboutUs extends javax.swing.JFrame {
             }
         });
         jPanel2.add(FeedbackLabel);
-        FeedbackLabel.setBounds(340, 40, 50, 40);
+        FeedbackLabel.setBounds(270, 40, 50, 40);
 
         jPanel4.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -169,18 +159,6 @@ public class AboutUs extends javax.swing.JFrame {
         jPanel2.add(jLabel7);
         jLabel7.setBounds(10, 10, 76, 70);
 
-        loginButton.setBackground(new java.awt.Color(153, 0, 0));
-        loginButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(255, 255, 255));
-        loginButton.setText("LOGIN");
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
-            }
-        });
-        jPanel2.add(loginButton);
-        loginButton.setBounds(1090, 50, 160, 30);
-
         registerButton.setBackground(new java.awt.Color(153, 0, 0));
         registerButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,7 +169,19 @@ public class AboutUs extends javax.swing.JFrame {
             }
         });
         jPanel2.add(registerButton);
-        registerButton.setBounds(910, 50, 160, 30);
+        registerButton.setBounds(910, 40, 160, 30);
+
+        loginButton.setBackground(new java.awt.Color(153, 0, 0));
+        loginButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(255, 255, 255));
+        loginButton.setText("LOGIN");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(loginButton);
+        loginButton.setBounds(1090, 40, 160, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 1280, 90);
@@ -231,18 +221,14 @@ public class AboutUs extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel8))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))))
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel8))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -250,9 +236,9 @@ public class AboutUs extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(28, 28, 28)
                         .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel10)
@@ -390,20 +376,15 @@ public class AboutUs extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_registerButtonActionPerformed
 
-    private void HomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeLabelMouseClicked
-        controller.handleHome();
+    private void FeedbackLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FeedbackLabelMouseClicked
+        controller.handleFeedback();
         this.dispose();
-    }//GEN-LAST:event_HomeLabelMouseClicked
+    }//GEN-LAST:event_FeedbackLabelMouseClicked
 
     private void DiscoverLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DiscoverLabelMouseClicked
         controller.handleDiscover();
         this.dispose();
     }//GEN-LAST:event_DiscoverLabelMouseClicked
-
-    private void FeedbackLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FeedbackLabelMouseClicked
-        controller.handleFeedback();
-        this.dispose();
-    }//GEN-LAST:event_FeedbackLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -442,7 +423,6 @@ public class AboutUs extends javax.swing.JFrame {
     private javax.swing.JLabel AboutUsLabel;
     private javax.swing.JLabel DiscoverLabel;
     private javax.swing.JLabel FeedbackLabel;
-    private javax.swing.JLabel HomeLabel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -473,4 +453,8 @@ public class AboutUs extends javax.swing.JFrame {
     private javax.swing.JButton loginButton;
     private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
+
+    public void SetVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

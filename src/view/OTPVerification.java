@@ -11,12 +11,14 @@ import controller.OTPController;
  * @author aaisma
  */
 public class OTPVerification extends javax.swing.JFrame {
-    private final OTPController controller = new OTPController(this);
+    private final OTPController controller;
+
     /**
      * Creates new form OTPVerification
      */
     public OTPVerification() {
         initComponents();
+        controller = new OTPController(this);
     }
 
     /**
@@ -133,9 +135,12 @@ public class OTPVerification extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void verifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifyButtonActionPerformed
-        String otp = otpField.getText();
+        String otp = otpField.getText().trim();
+        if (otp.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter the OTP.");
+            return;
+        }
         controller.verifyOTP(otp);
-
     }//GEN-LAST:event_verifyButtonActionPerformed
 
     /**

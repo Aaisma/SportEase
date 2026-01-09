@@ -11,13 +11,14 @@ import controller.ResetPasswordController;
  * @author aaisma
  */
 public class ResetPassword extends javax.swing.JFrame {
-    private final ResetPasswordController controller = new ResetPasswordController(this);
+    private final ResetPasswordController controller;
 
     /**
      * Creates new form ResetPassword
      */
     public ResetPassword() {
         initComponents();
+        controller = new ResetPasswordController(this);
     }
 
     /**
@@ -120,7 +121,7 @@ public class ResetPassword extends javax.swing.JFrame {
                 .addComponent(confirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -137,7 +138,7 @@ public class ResetPassword extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,10 +160,9 @@ public class ResetPassword extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
-        String newPassword = new String(newPasswordField.getPassword());
-        String confirmPassword = new String(confirmPasswordField.getPassword());
-        controller.resetPassword(newPassword, confirmPassword);
-;
+        String password = newPasswordField.getText().trim();
+        String confirmPassword = confirmPasswordField.getText().trim();
+        controller.resetPassword(password, confirmPassword);
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void confirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFieldActionPerformed

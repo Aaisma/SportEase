@@ -4,22 +4,23 @@
  */
 package view;
 
-import controller.ViewBookingController;
+import controller.ViewFeedbackController;
 import javax.swing.*;
+import view.ViewBooking;
 
 /**
  *
  * @author aaisma
  */
-public class ViewBooking extends javax.swing.JFrame {
-    private ViewBookingController controller;
-
+public class ViewFeedback extends javax.swing.JFrame {
+    private ViewFeedbackController controller;
+    
     /**
-     * Creates new form ViewBooking
+     * Creates new form ViewFeedback
      */
-    public ViewBooking() {
+    public ViewFeedback() {
         initComponents();
-        controller = new ViewBookingController(this); 
+        controller = new ViewFeedbackController();
     }
 
     /**
@@ -31,7 +32,6 @@ public class ViewBooking extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sportIdField8 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -41,29 +41,31 @@ public class ViewBooking extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        viewBooking = new javax.swing.JLabel();
+        viewFeedback = new javax.swing.JLabel();
         venueManagement = new javax.swing.JLabel();
-        viewBooking2 = new javax.swing.JLabel();
+        viewBooking = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        bookingTable = new javax.swing.JTable();
+        feedbackTableScrollPane = new javax.swing.JScrollPane();
+        feedbackTable = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
         userNameField = new javax.swing.JTextField();
-        venueNameField = new javax.swing.JTextField();
-        bookingDateField = new javax.swing.JTextField();
-        startTimeField = new javax.swing.JTextField();
-        endTimeField = new javax.swing.JTextField();
-        venueAddressField = new javax.swing.JTextField();
-        paymentStatusField = new javax.swing.JTextField();
-        totalPriceField = new javax.swing.JTextField();
-        paymentMethodField = new javax.swing.JTextField();
+        phoneNumberField = new javax.swing.JTextField();
+        emailField = new javax.swing.JTextField();
+        messageAreaScrollPane = new javax.swing.JScrollPane();
+        messageArea = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -148,16 +150,11 @@ public class ViewBooking extends javax.swing.JFrame {
         jPanel2.add(logoutButton);
         logoutButton.setBounds(1090, 50, 160, 30);
 
-        viewBooking.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        viewBooking.setForeground(new java.awt.Color(102, 0, 0));
-        viewBooking.setText("View Booking");
-        viewBooking.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                viewBookingMouseClicked(evt);
-            }
-        });
-        jPanel2.add(viewBooking);
-        viewBooking.setBounds(270, 40, 90, 50);
+        viewFeedback.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        viewFeedback.setForeground(new java.awt.Color(102, 0, 0));
+        viewFeedback.setText("View Feedback");
+        jPanel2.add(viewFeedback);
+        viewFeedback.setBounds(380, 40, 100, 50);
 
         venueManagement.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         venueManagement.setText("Venue Management");
@@ -169,36 +166,36 @@ public class ViewBooking extends javax.swing.JFrame {
         jPanel2.add(venueManagement);
         venueManagement.setBounds(120, 40, 140, 50);
 
-        viewBooking2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        viewBooking2.setText("View Feedback");
-        viewBooking2.addMouseListener(new java.awt.event.MouseAdapter() {
+        viewBooking.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        viewBooking.setText("View Booking");
+        viewBooking.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                viewBooking2MouseClicked(evt);
+                viewBookingMouseClicked(evt);
             }
         });
-        jPanel2.add(viewBooking2);
-        viewBooking2.setBounds(380, 40, 100, 50);
+        jPanel2.add(viewBooking);
+        viewBooking.setBounds(270, 40, 90, 50);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        bookingTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        bookingTable.setFont(new java.awt.Font("Segoe UI Emoji", 0, 10)); // NOI18N
-        bookingTable.setModel(new javax.swing.table.DefaultTableModel(
+        feedbackTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        feedbackTable.setFont(new java.awt.Font("Segoe UI Emoji", 0, 10)); // NOI18N
+        feedbackTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "BOOKING ID", "USERNAME", "VENUE BOOKED", "VENUE ADDRESS", "BOOKING DATE", "START TIME", "END TIME", "TOTAL PRICE", "PAYMENT METHOD", "PAYMENT STATUS"
+                "FEEDBACK ID", "USERNAME", "PHONE NO.", "EMAIL", "MESSAGE", "CREATED AT"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, false, true, false, false, true, false
+                false, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -209,12 +206,12 @@ public class ViewBooking extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        bookingTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        feedbackTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bookingTableMouseClicked(evt);
+                feedbackTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(bookingTable);
+        feedbackTableScrollPane.setViewportView(feedbackTable);
 
         addButton.setBackground(new java.awt.Color(255, 204, 204));
         addButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -252,69 +249,90 @@ public class ViewBooking extends javax.swing.JFrame {
             }
         });
 
+        messageArea.setColumns(20);
+        messageArea.setRows(5);
+        messageAreaScrollPane.setViewportView(messageArea);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel2.setText("Username:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel3.setText("Email:");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel4.setText("Phone No.:");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel5.setText("Message:");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGap(106, 106, 106)
-                            .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(venueNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(venueAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(bookingDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(startTimeField, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(endTimeField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(totalPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(paymentStatusField, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(paymentMethodField, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(95, 95, 95))))
-                .addGap(210, 365, Short.MAX_VALUE))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(userNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+                                    .addComponent(emailField))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(phoneNumberField)
+                                    .addComponent(messageAreaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(feedbackTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)))
+                .addGap(367, 367, 367))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(17, 17, 17)
+                .addComponent(feedbackTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(endTimeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(startTimeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bookingDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(venueAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(venueNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paymentStatusField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(totalPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paymentMethodField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                    .addComponent(jLabel4)
+                    .addComponent(phoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(messageAreaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(93, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         searchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -331,93 +349,121 @@ public class ViewBooking extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1631, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(374, 374, 374))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(376, 376, 376))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1280, 720);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1643, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 816, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-       controller.handleLogout(this);
+        controller.handleLogout(this);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void viewBookingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBookingMouseClicked
-        controller.handleViewBooking(this);
-        this.dispose();
-    }//GEN-LAST:event_viewBookingMouseClicked
-
     private void venueManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_venueManagementMouseClicked
-        this.dispose();
-        new VenueManagement().setVisible(true);
+    controller.handleVenueManagement(this);
+    this.dispose();
     }//GEN-LAST:event_venueManagementMouseClicked
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        boolean success = controller.handleAdd();
-        JOptionPane.showMessageDialog(this, success ? "Booking added!" : "Failed to add booking.");
+        boolean success = controller.handleAdd(
+            feedbackTable,
+            userNameField,
+            phoneNumberField,
+            emailField,
+            messageArea
+    );
+    JOptionPane.showMessageDialog(this, success ? "Feedback added!" : "Failed to add feedback.");
     }//GEN-LAST:event_addButtonActionPerformed
 
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        boolean success = controller.handleUpdate(
+            feedbackTable,
+            userNameField,
+            phoneNumberField,
+            emailField,
+            messageArea
+    );
+    JOptionPane.showMessageDialog(this, success ? "Feedback updated!" : "Failed to update feedback.");
+    }//GEN-LAST:event_updateButtonActionPerformed
+
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        boolean success = controller.handleDelete();
-        JOptionPane.showMessageDialog(this, success ? "Booking deleted!" : "Failed to delete booking.");
+        boolean success = controller.handleDelete(
+            feedbackTable,
+            userNameField,
+            phoneNumberField,
+            emailField,
+            messageArea
+    );
+    JOptionPane.showMessageDialog(this, success ? "Feedback deleted!" : "Failed to delete feedback.");       
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
-        controller.handleRefresh();
-        JOptionPane.showMessageDialog(this, "Table refreshed!");
+        controller.handleRefresh(feedbackTable, searchField);
+    JOptionPane.showMessageDialog(this, "Table refreshed!");    
     }//GEN-LAST:event_refreshButtonActionPerformed
 
     private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
-        controller.handleSearch();
+        controller.handleSearch(feedbackTable, searchField);       
     }//GEN-LAST:event_searchFieldActionPerformed
 
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        boolean success = controller.handleUpdate();
-        JOptionPane.showMessageDialog(this, success ? "Booking updated!" : "Failed to update booking.");
-    }//GEN-LAST:event_updateButtonActionPerformed
+    private void viewBookingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBookingMouseClicked
+    controller.handleViewBooking(this);
+    this.dispose();
+    }//GEN-LAST:event_viewBookingMouseClicked
 
-    private void viewBooking2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBooking2MouseClicked
-        controller.handleViewBooking(this);
-        this.dispose();
-    }//GEN-LAST:event_viewBooking2MouseClicked
-
-    private void bookingTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingTableMouseClicked
-        int selectedRow = bookingTable.getSelectedRow();
+    private void feedbackTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbackTableMouseClicked
+        int selectedRow = feedbackTable.getSelectedRow();
     if (selectedRow != -1) {
         // Map table columns to your fields
-        userNameField.setText(bookingTable.getValueAt(selectedRow, 1).toString());
-        venueNameField.setText(bookingTable.getValueAt(selectedRow, 2).toString());
-        venueAddressField.setText(bookingTable.getValueAt(selectedRow, 3).toString());
-        bookingDateField.setText(bookingTable.getValueAt(selectedRow, 4).toString());
-        startTimeField.setText(bookingTable.getValueAt(selectedRow, 5).toString());
-        endTimeField.setText(bookingTable.getValueAt(selectedRow, 6).toString());
-        totalPriceField.setText(bookingTable.getValueAt(selectedRow, 7).toString());
-        paymentMethodField.setText(bookingTable.getValueAt(selectedRow, 8).toString());
-        paymentStatusField.setText(bookingTable.getValueAt(selectedRow, 9).toString());
-    }   
-    }//GEN-LAST:event_bookingTableMouseClicked
-    
-      public static void main(String args[]) {
+        userNameField.setText(feedbackTable.getValueAt(selectedRow, 1).toString());
+        phoneNumberField.setText(feedbackTable.getValueAt(selectedRow, 2).toString());
+        emailField.setText(feedbackTable.getValueAt(selectedRow, 3).toString());
+        messageArea.setText(feedbackTable.getValueAt(selectedRow, 4).toString());
+    }
+    }//GEN-LAST:event_feedbackTableMouseClicked
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -443,61 +489,47 @@ public class ViewBooking extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new ViewBooking().setVisible(true);
+            new ViewFeedback().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
-    private javax.swing.JTextField bookingDateField;
-    private javax.swing.JTable bookingTable;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JTextField endTimeField;
+    private javax.swing.JTextField emailField;
+    private javax.swing.JTable feedbackTable;
+    private javax.swing.JScrollPane feedbackTableScrollPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTextField paymentMethodField;
-    private javax.swing.JTextField paymentStatusField;
+    private javax.swing.JTextArea messageArea;
+    private javax.swing.JScrollPane messageAreaScrollPane;
+    private javax.swing.JTextField phoneNumberField;
     private javax.swing.JButton refreshButton;
     private javax.swing.JTextField searchField;
-    private javax.swing.JTextField sportIdField8;
-    private javax.swing.JTextField startTimeField;
-    private javax.swing.JTextField totalPriceField;
     private javax.swing.JButton updateButton;
     private javax.swing.JTextField userNameField;
-    private javax.swing.JTextField venueAddressField;
     private javax.swing.JLabel venueManagement;
-    private javax.swing.JTextField venueNameField;
     private javax.swing.JLabel viewBooking;
-    private javax.swing.JLabel viewBooking2;
+    private javax.swing.JLabel viewFeedback;
     // End of variables declaration//GEN-END:variables
-
-    public JButton getLogoutButton() { return logoutButton; }
-    public JButton getAddButton() { return addButton; }
-    public JButton getUpdateButton() { return updateButton; }
-    public JButton getDeleteButton() { return deleteButton; }
-    public JButton getRefreshButton() { return refreshButton; }
-
-    public JTable getBookingTable() { return bookingTable; }
+    
+    public JTable getFeedbackTable() { return feedbackTable; }
+    public JTextField getUserNameField() { return userNameField; }
+    public JTextField getPhoneNumberField() { return phoneNumberField; }
+    public JTextField getEmailField() { return emailField; }
+    public JTextArea getMessageArea() { return messageArea; }
     public JTextField getSearchField() { return searchField; }
-
-    public JTextField getUsernameField() { return userNameField; }
-    public JTextField getVenueBookedField() { return venueNameField; }
-    public JTextField getBookingDateField() { return bookingDateField; }
-    public JTextField getStartTimeField() { return startTimeField; }
-    public JTextField getEndTimeField() { return endTimeField; }
-    public JTextField getTotalPriceField() { return totalPriceField; }
-    public JTextField getPaymentStatusField() { return paymentStatusField; }
-
-    public JLabel getVenueManagementLabel() { return venueManagement; }
-    public JLabel getViewBookingLabel() { return viewBooking; }
 
 }

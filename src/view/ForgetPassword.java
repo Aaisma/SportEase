@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+
 import controller.ForgetPasswordController;
+
 /**
  *
  * @author aaisma
@@ -35,6 +37,7 @@ public class ForgetPassword extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         emailField = new javax.swing.JTextField();
         sendotpButton = new javax.swing.JButton();
+        BackLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +67,14 @@ public class ForgetPassword extends javax.swing.JFrame {
             }
         });
 
+        BackLabel.setFont(new java.awt.Font("Segoe UI Emoji", 0, 24)); // NOI18N
+        BackLabel.setText("X");
+        BackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackLabelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -88,13 +99,20 @@ public class ForgetPassword extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(173, 173, 173))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(173, 173, 173))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(BackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addContainerGap()
+                .addComponent(BackLabel)
+                .addGap(78, 78, 78)
                 .addComponent(jLabel1)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
@@ -104,7 +122,7 @@ public class ForgetPassword extends javax.swing.JFrame {
                 .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(119, 119, 119)
                 .addComponent(sendotpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
@@ -127,9 +145,17 @@ public class ForgetPassword extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sendotpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendotpButtonActionPerformed
-        String email = emailField.getText();
+        String email = emailField.getText().trim();
+        if (email.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter your email.");
+            return;
+        }
         controller.sendOTP(email);
     }//GEN-LAST:event_sendotpButtonActionPerformed
+
+    private void BackLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMouseClicked
+        controller.handleBack();
+    }//GEN-LAST:event_BackLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -160,11 +186,11 @@ public class ForgetPassword extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new ForgetPassword().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BackLabel;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -11,7 +11,7 @@ import controller.FeedbackController;
  * @author aaisma
  */
 public class Feedback extends javax.swing.JFrame {
-    private final FeedbackController controller;
+    private FeedbackController controller;
     /**
      * Creates new form Feedback
      */
@@ -34,7 +34,6 @@ public class Feedback extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        HomeLabel = new javax.swing.JLabel();
         AboutUsLabel = new javax.swing.JLabel();
         DiscoverLabel = new javax.swing.JLabel();
         FeedbackLabel = new javax.swing.JLabel();
@@ -114,15 +113,6 @@ public class Feedback extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(110, 0, 1170, 28);
 
-        HomeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homelogo.png"))); // NOI18N
-        HomeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HomeLabelMouseClicked(evt);
-            }
-        });
-        jPanel2.add(HomeLabel);
-        HomeLabel.setBounds(200, 40, 50, 40);
-
         AboutUsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/aboutuslogo.png"))); // NOI18N
         AboutUsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -139,11 +129,11 @@ public class Feedback extends javax.swing.JFrame {
             }
         });
         jPanel2.add(DiscoverLabel);
-        DiscoverLabel.setBounds(270, 40, 46, 40);
+        DiscoverLabel.setBounds(200, 40, 46, 40);
 
         FeedbackLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/feedbacklogo.png"))); // NOI18N
         jPanel2.add(FeedbackLabel);
-        FeedbackLabel.setBounds(340, 40, 50, 40);
+        FeedbackLabel.setBounds(260, 40, 50, 40);
 
         jPanel4.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -404,11 +394,6 @@ public class Feedback extends javax.swing.JFrame {
         controller.handleSubmit(name,phone,email,message);
     }//GEN-LAST:event_submitButtonActionPerformed
 
-    private void HomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeLabelMouseClicked
-        controller.handleHome();
-        this.dispose();
-    }//GEN-LAST:event_HomeLabelMouseClicked
-
     private void AboutUsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutUsLabelMouseClicked
         controller.handleAboutUs();
         this.dispose();
@@ -456,7 +441,6 @@ public class Feedback extends javax.swing.JFrame {
     private javax.swing.JLabel AboutUsLabel;
     private javax.swing.JLabel DiscoverLabel;
     private javax.swing.JLabel FeedbackLabel;
-    private javax.swing.JLabel HomeLabel;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

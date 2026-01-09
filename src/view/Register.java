@@ -43,7 +43,7 @@ public class Register extends javax.swing.JFrame {
         loginLink = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
-        BackLabel1 = new javax.swing.JLabel();
+        BackLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -69,12 +69,6 @@ public class Register extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jLabel6.setText("Password");
-
-        ConfirmpasswordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmpasswordFieldActionPerformed(evt);
-            }
-        });
 
         registerButton.setBackground(new java.awt.Color(153, 0, 0));
         registerButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
@@ -104,11 +98,11 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        BackLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 0, 24)); // NOI18N
-        BackLabel1.setText("X");
-        BackLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        BackLabel.setFont(new java.awt.Font("Segoe UI Emoji", 0, 24)); // NOI18N
+        BackLabel.setText("X");
+        BackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BackLabel1MouseClicked(evt);
+                BackLabelMouseClicked(evt);
             }
         });
 
@@ -146,14 +140,14 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(loginLink)
                         .addGap(297, 297, 297))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(BackLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BackLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -190,10 +184,6 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ConfirmpasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmpasswordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConfirmpasswordFieldActionPerformed
-
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         String username = usernameField.getText();
         String email = emailField.getText();
@@ -214,9 +204,9 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
 
-    private void BackLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabel1MouseClicked
+    private void BackLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMouseClicked
         controller.handleBack();
-    }//GEN-LAST:event_BackLabel1MouseClicked
+    }//GEN-LAST:event_BackLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -252,7 +242,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BackLabel1;
+    private javax.swing.JLabel BackLabel;
     private javax.swing.JPasswordField ConfirmpasswordField;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel jLabel1;

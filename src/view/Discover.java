@@ -4,19 +4,35 @@
  */
 package view;
 
+import controller.DiscoverController;
+import database.MySqlConnection;
+
 /**
  *
  * @author aaisma
  */
 public class Discover extends javax.swing.JFrame {
+    private DiscoverController controller;
 
     /**
      * Creates new form Discover
      */
     public Discover() {
         initComponents();
-    }
 
+        // Initialize controller with DB connection
+        controller = new DiscoverController(new MySqlConnection().openConnection());
+
+        // Load venues when Discover opens
+        controller.loadAll(venuePanel);
+
+        // Auto-refresh every 30 seconds
+        javax.swing.Timer timer = new javax.swing.Timer(30000, e -> {
+            controller.loadAll(venuePanel);
+        });
+        timer.start();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,29 +43,29 @@ public class Discover extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        homeLabel = new javax.swing.JLabel();
+        discoverLabel = new javax.swing.JLabel();
+        feedbackLabel = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnHome = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        logoutButton = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        searchField = new javax.swing.JTextField();
+        VenueScroll = new javax.swing.JScrollPane();
+        venuePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(1280, 720));
-        setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setMaximumSize(new java.awt.Dimension(1280, 660));
+        setMinimumSize(new java.awt.Dimension(1280, 660));
+        setPreferredSize(new java.awt.Dimension(1280, 660));
         getContentPane().setLayout(null);
 
         jPanel2.setLayout(null);
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(1276, 26, 0, 0);
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -89,18 +105,6 @@ public class Discover extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(110, 0, 1170, 28);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/aboutuslogo.png"))); // NOI18N
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(120, 50, 60, 30);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Discoverlogo.png"))); // NOI18N
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(280, 40, 46, 40);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/feedbacklogo.png"))); // NOI18N
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(350, 40, 50, 40);
-
         jPanel4.setBackground(new java.awt.Color(153, 0, 0));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -117,9 +121,31 @@ public class Discover extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(100, 0, 10, 90);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logosportease.png"))); // NOI18N
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(10, 10, 76, 70);
+        homeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homelogo.png"))); // NOI18N
+        homeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeLabelMouseClicked(evt);
+            }
+        });
+        jPanel2.add(homeLabel);
+        homeLabel.setBounds(120, 40, 50, 40);
+
+        discoverLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Discoverlogo.png"))); // NOI18N
+        jPanel2.add(discoverLabel);
+        discoverLabel.setBounds(190, 40, 46, 40);
+
+        feedbackLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/feedbacklogo.png"))); // NOI18N
+        feedbackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                feedbackLabelMouseClicked(evt);
+            }
+        });
+        jPanel2.add(feedbackLabel);
+        feedbackLabel.setBounds(250, 40, 50, 40);
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logosportease.png"))); // NOI18N
+        jPanel2.add(logo);
+        logo.setBounds(10, 10, 76, 70);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,31 +161,88 @@ public class Discover extends javax.swing.JFrame {
         jPanel2.add(jPanel1);
         jPanel1.setBounds(0, -40, 100, 100);
 
-        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homelogo.png"))); // NOI18N
-        jPanel2.add(btnHome);
-        btnHome.setBounds(200, 40, 50, 40);
+        logoutButton.setBackground(new java.awt.Color(102, 0, 0));
+        logoutButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton.setText("LOGOUT");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(logoutButton);
+        logoutButton.setBounds(1160, 50, 100, 23);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 1280, 90);
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1439, Short.MAX_VALUE)
+        searchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        searchField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchFieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(1002, Short.MAX_VALUE)
+                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel6);
-        jPanel6.setBounds(0, -2, 1439, 820);
+        getContentPane().add(jPanel5);
+        jPanel5.setBounds(0, 90, 1280, 40);
+
+        VenueScroll.setBackground(new java.awt.Color(255, 255, 255));
+        VenueScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        VenueScroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        venuePanel.setBackground(new java.awt.Color(255, 255, 255));
+        venuePanel.setMaximumSize(new java.awt.Dimension(1280, 720));
+        venuePanel.setMinimumSize(new java.awt.Dimension(1280, 720));
+        venuePanel.setPreferredSize(new java.awt.Dimension(1280, 2000));
+        venuePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 52, 35));
+        VenueScroll.setViewportView(venuePanel);
+
+        getContentPane().add(VenueScroll);
+        VenueScroll.setBounds(0, 130, 1280, 590);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        controller.handleLogout(this);
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
+        String keyword = searchField.getText().trim();
+        if (!keyword.isEmpty()) {
+            controller.search(venuePanel, keyword);
+        } else {
+            // If search is empty, reload all venues
+            controller.loadAll(venuePanel);
+        }
+    }//GEN-LAST:event_searchFieldActionPerformed
+
+    private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseClicked
+        controller.goHome(this);
+    }//GEN-LAST:event_homeLabelMouseClicked
+
+    private void feedbackLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedbackLabelMouseClicked
+        controller.goFeedback(this);
+    }//GEN-LAST:event_feedbackLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -189,26 +272,26 @@ public class Discover extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Discover().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Discover().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnHome;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane VenueScroll;
+    private javax.swing.JLabel discoverLabel;
+    private javax.swing.JLabel feedbackLabel;
+    private javax.swing.JLabel homeLabel;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel logo;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JTextField searchField;
+    private javax.swing.JPanel venuePanel;
     // End of variables declaration//GEN-END:variables
 }

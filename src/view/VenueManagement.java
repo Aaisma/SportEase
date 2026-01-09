@@ -4,20 +4,22 @@
  */
 package view;
 
-import controller.SportManagementController;
+import controller.VenueManagementController;
+
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author aaisma
  */
 public class VenueManagement extends javax.swing.JFrame {
+    private final VenueManagementController controller;
 
-    /**
-     * Creates new form VenueManagement
-     */
-    public VenueManagement() {
+   public VenueManagement() {
         initComponents();
+        // Use your MySqlConnection class
+        controller = new VenueManagementController();
+        controller.handleRefresh(venueTable, searchField);
     }
 
     /**
@@ -35,33 +37,45 @@ public class VenueManagement extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        sportManagement = new javax.swing.JLabel();
         viewBooking = new javax.swing.JLabel();
         venueManagement = new javax.swing.JLabel();
+        viewFeedback = new javax.swing.JLabel();
+        viewBooking2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableModel = new javax.swing.JTable();
-        sportIdField = new javax.swing.JTextField();
         nameField = new javax.swing.JTextField();
-        imagePathField = new javax.swing.JTextField();
-        ratingField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        venueTable = new javax.swing.JTable();
+        addressField = new javax.swing.JTextField();
+        categoryField = new javax.swing.JTextField();
+        priceField = new javax.swing.JTextField();
+        groundSizeField = new javax.swing.JTextField();
+        imagePreviewLabel = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
+        browseImageButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        imagePathField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        openField = new javax.swing.JTextField();
+        closeField = new javax.swing.JTextField();
         searchField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1270, 720));
+        setMinimumSize(new java.awt.Dimension(1270, 720));
+        setPreferredSize(new java.awt.Dimension(1270, 720));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setLayout(null);
 
         jPanel2.setLayout(null);
 
@@ -76,8 +90,6 @@ public class VenueManagement extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel1.setText("WELCOME ADMIN!");
 
-        jLabel2.setText("hhhhhh");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -85,11 +97,9 @@ public class VenueManagement extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(203, 203, 203)
                 .addComponent(jLabel19)
-                .addGap(266, 266, 266)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 653, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(29, 29, 29))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -99,17 +109,16 @@ public class VenueManagement extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(8, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel1))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jLabel20)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap(8, Short.MAX_VALUE)))
         );
 
         jPanel2.add(jPanel3);
@@ -147,16 +156,6 @@ public class VenueManagement extends javax.swing.JFrame {
         jPanel2.add(logoutButton);
         logoutButton.setBounds(1090, 50, 160, 30);
 
-        sportManagement.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        sportManagement.setText("Sport Management");
-        sportManagement.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                sportManagementMouseClicked(evt);
-            }
-        });
-        jPanel2.add(sportManagement);
-        sportManagement.setBounds(120, 40, 130, 50);
-
         viewBooking.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         viewBooking.setText("View Booking");
         viewBooking.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,48 +164,91 @@ public class VenueManagement extends javax.swing.JFrame {
             }
         });
         jPanel2.add(viewBooking);
-        viewBooking.setBounds(410, 40, 90, 50);
+        viewBooking.setBounds(290, 40, 90, 50);
 
         venueManagement.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        venueManagement.setForeground(new java.awt.Color(102, 0, 0));
         venueManagement.setText("Venue Management");
-        venueManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel2.add(venueManagement);
+        venueManagement.setBounds(130, 40, 140, 50);
+
+        viewFeedback.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        viewFeedback.setText("View Feedback");
+        viewFeedback.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                venueManagementMouseClicked(evt);
+                viewFeedbackMouseClicked(evt);
             }
         });
-        jPanel2.add(venueManagement);
-        venueManagement.setBounds(260, 40, 140, 50);
+        jPanel2.add(viewFeedback);
+        viewFeedback.setBounds(400, 40, 100, 50);
+
+        viewBooking2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        viewBooking2.setText("View Feedback");
+        viewBooking2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewBooking2MouseClicked(evt);
+            }
+        });
+        jPanel2.add(viewBooking2);
+        viewBooking2.setBounds(380, 40, 100, 50);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 1280, 88);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel6.setMaximumSize(new java.awt.Dimension(1280, 720));
+        jPanel6.setMinimumSize(new java.awt.Dimension(1280, 720));
+        jPanel6.setPreferredSize(new java.awt.Dimension(1280, 720));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel6.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 150, 30));
 
-        tableModel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        tableModel.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
-        tableModel.setModel(new javax.swing.table.DefaultTableModel(
+        venueTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        venueTable.setFont(new java.awt.Font("Segoe UI Emoji", 0, 10)); // NOI18N
+        venueTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "SPORT ID", "SPORT NAME", "IMAGE", "RATING"
+                "ID", "Name", "Address", "Category", "Open", "Close", "Price", "Ground size"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true, true, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-        });
-        jScrollPane1.setViewportView(tableModel);
 
-        imagePathField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imagePathFieldActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        venueTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                venueTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(venueTable);
+
+        jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1202, 290));
+        jPanel6.add(addressField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 170, 30));
+        jPanel6.add(categoryField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 140, 30));
+        jPanel6.add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 310, 140, 30));
+        jPanel6.add(groundSizeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 310, 160, 30));
+
+        imagePreviewLabel.setBackground(new java.awt.Color(255, 255, 255));
+        imagePreviewLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        imagePreviewLabel.setMaximumSize(new java.awt.Dimension(150, 150));
+        imagePreviewLabel.setMinimumSize(new java.awt.Dimension(150, 150));
+        imagePreviewLabel.setPreferredSize(new java.awt.Dimension(150, 150));
+        jPanel6.add(imagePreviewLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 350, -1, 127));
 
         addButton.setBackground(new java.awt.Color(255, 204, 204));
         addButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -216,6 +258,17 @@ public class VenueManagement extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
+        jPanel6.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 212, 35));
+
+        browseImageButton.setBackground(new java.awt.Color(255, 204, 204));
+        browseImageButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        browseImageButton.setText("BROWSE");
+        browseImageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseImageButtonActionPerformed(evt);
+            }
+        });
+        jPanel6.add(browseImageButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 440, 130, 30));
 
         updateButton.setBackground(new java.awt.Color(255, 204, 204));
         updateButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -225,15 +278,7 @@ public class VenueManagement extends javax.swing.JFrame {
                 updateButtonActionPerformed(evt);
             }
         });
-
-        deleteButton.setBackground(new java.awt.Color(255, 204, 204));
-        deleteButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        deleteButton.setText("DELETE");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
-            }
-        });
+        jPanel6.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 205, 35));
 
         refreshButton.setBackground(new java.awt.Color(255, 204, 204));
         refreshButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -243,55 +288,27 @@ public class VenueManagement extends javax.swing.JFrame {
                 refreshButtonActionPerformed(evt);
             }
         });
+        jPanel6.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 210, 30));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(sportIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(imagePathField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                            .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ratingField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(16, 16, 16))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(imagePathField, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
-                    .addComponent(nameField, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sportIdField, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ratingField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
-        );
+        deleteButton.setBackground(new java.awt.Color(255, 204, 204));
+        deleteButton.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        deleteButton.setText("DELETE");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        jPanel6.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 210, 32));
+        jPanel6.add(imagePathField, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 440, 180, 30));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel2.setText("Image Path:");
+        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 420, -1, -1));
+        jPanel6.add(openField, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 310, 140, 30));
+        jPanel6.add(closeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 150, 30));
+
+        jPanel1.add(jPanel6);
+        jPanel6.setBounds(20, 130, 1240, 490);
 
         searchField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         searchField.addActionListener(new java.awt.event.ActionListener() {
@@ -299,93 +316,93 @@ public class VenueManagement extends javax.swing.JFrame {
                 searchFieldActionPerformed(evt);
             }
         });
+        jPanel1.add(searchField);
+        searchField.setBounds(1000, 100, 255, 20);
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 0, 0));
-        jButton1.setText("Search");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
-        );
+        jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel3.setText("Search:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(940, 100, 50, 20);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1284, 720);
+        jPanel1.setBounds(0, 0, 1280, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        new Logout().setVisible(true);
-        this.dispose();
+        controller.handleLogout(this);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void sportManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sportManagementMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sportManagementMouseClicked
-
     private void viewBookingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBookingMouseClicked
-        // TODO add your handling code here:
+        controller.handleViewBooking(this);
+        this.dispose();
     }//GEN-LAST:event_viewBookingMouseClicked
 
-    private void venueManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_venueManagementMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_venueManagementMouseClicked
-
-    private void imagePathFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imagePathFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_imagePathFieldActionPerformed
-
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        
+        boolean success = controller.handleAdd(venueTable, nameField, addressField, categoryField,
+                openField, closeField,imagePathField, priceField, groundSizeField  
+        );
+        JOptionPane.showMessageDialog(this, success ? "Venue added!" : "Failed to add venue.");
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        
+        boolean success = controller.handleUpdate(venueTable, nameField, addressField, categoryField,
+                openField, closeField,imagePathField, priceField, groundSizeField  
+        );
+        JOptionPane.showMessageDialog(this, success ? "Venue updated!" : "Failed to update venue.");
     }//GEN-LAST:event_updateButtonActionPerformed
 
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        
-    }//GEN-LAST:event_deleteButtonActionPerformed
+    private void browseImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseImageButtonActionPerformed
+        controller.handleBrowseImage(imagePathField, imagePreviewLabel);
+    }//GEN-LAST:event_browseImageButtonActionPerformed
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
-        
+        controller.handleRefresh(venueTable, null);
+        JOptionPane.showMessageDialog(this, "Table refreshed!");
     }//GEN-LAST:event_refreshButtonActionPerformed
 
     private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
-        // TODO add your handling code here:
+        controller.handleSearch(venueTable, searchField);
     }//GEN-LAST:event_searchFieldActionPerformed
 
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        boolean success = controller.handleDelete(venueTable, nameField, addressField, categoryField,
+                openField, closeField,imagePathField, priceField, groundSizeField  
+        );
+        JOptionPane.showMessageDialog(this, success ? "Venue deleted!" : "Failed to delete venue.");     
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void venueTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_venueTableMouseClicked
+        controller.handleLoadImage(imagePathField, imagePreviewLabel);
+
+    // Optionally, also populate the text fields with the selected row’s data
+    int selectedRow = venueTable.getSelectedRow();
+    if (selectedRow != -1) {
+        nameField.setText(venueTable.getValueAt(selectedRow, 1).toString());
+        addressField.setText(venueTable.getValueAt(selectedRow, 2).toString());
+        categoryField.setText(venueTable.getValueAt(selectedRow, 3).toString());
+        closeField.setText(venueTable.getValueAt(selectedRow, 4).toString());
+        openField.setText(venueTable.getValueAt(selectedRow, 5).toString());
+        priceField.setText(venueTable.getValueAt(selectedRow, 6).toString());
+        groundSizeField.setText(venueTable.getValueAt(selectedRow, 7).toString());
+        imagePathField.setText(venueTable.getValueAt(selectedRow, 8).toString());
+    }
+    }//GEN-LAST:event_venueTableMouseClicked
+  
+    private void viewFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewFeedbackMouseClicked
+        controller.handleFeedback(this);
+        this.dispose();
+    }//GEN-LAST:event_viewFeedbackMouseClicked
+
+    private void viewBooking2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBooking2MouseClicked
+        controller.handleViewBooking(this);
+        this.dispose();
+    }//GEN-LAST:event_viewBooking2MouseClicked
+
+
+
+    
     /**
      * @param args the command line arguments
      */
@@ -414,22 +431,26 @@ public class VenueManagement extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VenueManagement().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+        new VenueManagement().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JTextField addressField;
+    private javax.swing.JButton browseImageButton;
+    private javax.swing.JTextField categoryField;
+    private javax.swing.JTextField closeField;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JTextField groundSizeField;
     private javax.swing.JTextField imagePathField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel imagePreviewLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -439,14 +460,15 @@ public class VenueManagement extends javax.swing.JFrame {
     private javax.swing.JLabel logo;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField nameField;
-    private javax.swing.JTextField ratingField;
+    private javax.swing.JTextField openField;
+    private javax.swing.JTextField priceField;
     private javax.swing.JButton refreshButton;
     private javax.swing.JTextField searchField;
-    private javax.swing.JTextField sportIdField;
-    private javax.swing.JLabel sportManagement;
-    private javax.swing.JTable tableModel;
     private javax.swing.JButton updateButton;
     private javax.swing.JLabel venueManagement;
+    private javax.swing.JTable venueTable;
     private javax.swing.JLabel viewBooking;
+    private javax.swing.JLabel viewBooking2;
+    private javax.swing.JLabel viewFeedback;
     // End of variables declaration//GEN-END:variables
 }

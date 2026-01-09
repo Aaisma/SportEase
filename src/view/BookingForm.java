@@ -205,7 +205,8 @@ public class BookingForm extends javax.swing.JFrame {
     private void BackLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackLabelMouseClicked
          controller.goBack(this);
     }//GEN-LAST:event_BackLabelMouseClicked
-                                   
+        
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackLabel;
     private com.toedter.calendar.JCalendar bookingDateChooser;
@@ -235,7 +236,7 @@ public class BookingForm extends javax.swing.JFrame {
     public double getVenuePricePerHour() { return venuePricePerHour; }
 
     public BookingFormController getController() { return controller; }
-
-
     
 }
+
+
