@@ -1,3 +1,8 @@
+/**
+ * View class for admin venue management interface
+ * Provides UI for venue administration
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.view;
 
 import com.sportbooking.model.Venue;

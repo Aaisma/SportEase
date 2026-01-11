@@ -1,3 +1,8 @@
+/**
+ * View class for user login interface
+ * Handles user authentication UI
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.view;
 
 import com.sportbooking.model.User;

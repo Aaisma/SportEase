@@ -1,3 +1,8 @@
+/**
+ * View class for booking history display
+ * Shows user booking records and history
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.view;
 
 import com.sportbooking.model.User;

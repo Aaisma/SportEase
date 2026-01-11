@@ -1,3 +1,8 @@
+/**
+ * View class for user profile display
+ * Shows and manages user profile information
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.view;
 
 import com.sportbooking.model.User;
