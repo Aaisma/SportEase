@@ -1,3 +1,8 @@
+/**
+ * Data Access Object for Venue operations
+ * Handles database operations for venue management
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.dao;
 
 import com.sportbooking.model.Venue;

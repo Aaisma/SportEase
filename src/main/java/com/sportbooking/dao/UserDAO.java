@@ -1,3 +1,8 @@
+/**
+ * Data Access Object for User operations
+ * Handles database operations for user management
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.dao;
 
 import com.sportbooking.model.User;

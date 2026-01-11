@@ -1,3 +1,8 @@
+/**
+ * Data Access Object for Booking operations
+ * Handles database operations for booking management
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.dao;
 
 import com.sportbooking.model.Booking;
