@@ -4,3 +4,6 @@ nbproject/private/build-impl.xml
 nbproject/build.xml
 /build/
 /dist/
+/nbproject/private/
+.DS_Store
+build/
