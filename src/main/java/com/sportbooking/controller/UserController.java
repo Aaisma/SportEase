@@ -1,3 +1,8 @@
+/**
+ * Controller class for managing user operations
+ * Handles user authentication and profile management
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.controller;
 
 import com.sportbooking.model.User;

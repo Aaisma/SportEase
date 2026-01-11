@@ -1,3 +1,8 @@
+/**
+ * Controller class for managing venue operations
+ * Handles venue booking, availability checks, and CRUD operations
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.controller;
 
 import com.sportbooking.model.Venue;

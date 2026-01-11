@@ -1,3 +1,8 @@
+/**
+ * Controller class for managing booking operations
+ * Handles booking creation, updates, and retrieval
+ * @author Yubraj Joshi
+ */
 package com.sportbooking.controller;
 
 import com.sportbooking.model.Booking;
