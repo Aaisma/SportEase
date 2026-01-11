@@ -92,6 +92,6 @@ public class bookingcancel extends JFrame {
     }
 
     public static void main(String[] args) {
-        new bookingcancel();
+        new bookingcancel(); // Test commit to verify GitHub contributions
     }
 }
